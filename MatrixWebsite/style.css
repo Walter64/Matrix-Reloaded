@@ -1,9 +1,17 @@
+
 body{
 background: white;  /*#DCE6F0;*/
 margin: 0px;}
 
 /*Nav Bar text colour dark blue*/
 .nav-custom{background-color: #1B2A3C;   height: 65px;}
+/* Font Style*/
+.title-font-style{
+  
+  background-color: #1B2A3C;
+  color: #C1D3E6;
+	border: none;
+}
 
 /*Login, profile, register, Logout button customise*/
 .btn-primary.custom-btn {

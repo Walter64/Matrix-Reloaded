@@ -29,8 +29,6 @@
             Shop</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="clothing.html">Clothing</a>
-            <a class="dropdown-item" href="sports.html">Sports</a>
-            <a class="dropdown-item" href="accessories.html">Accessories</a>
           </div>
         </li>
         <!--Navbar link to Cart -->
@@ -208,11 +206,11 @@
       <div class="card">
         <img src="images/pulpFiction.jfif" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Pulp Fiction Special Addition</h5>
+          <h5 class="card-title">Pulp Fiction Special Edition</h5>
           <p class="card-text">Available in sizes S M L XL XXL XXXL. Our pulp fiction special addition T-Shirt to honour the fantastic movie, a Quentin Tarantino marvel and still a very popular choice you can now wear as your own. </p>
         </div>
         <div class="card-footer">
-          <div>€17.99<button type="button my-4 my-lg-0" onClick="item1()" class="btn btn-primary">Add to Cart</button></div>
+          <div><center>€17.99<button type="button my-4 my-lg-0" onClick="item1()" class="btn btn-primary">Add to Cart</button></center></div>
         </div>
       </div>
         <!-- card 2 of row 1 -->
@@ -224,7 +222,7 @@
           <p class="card-text">Available in sizes S M L XL XXL XXXL. Star Wars a SCIFI classic, to honour the great movie we have a great T-Shirt just for that.</p>
         </div>
         <div class="card-footer">
-          <div>€24.99<button type="button my-4 my-lg-0" onClick="item2()" class="btn btn-primary">Add To Cart</button></div>
+          <div><center>€24.99<button type="button my-4 my-lg-0" onClick="item2()" class="btn btn-primary">Add To Cart</button></center></div>
         </div>
       </div>
       <!-- card 3 of row 1 -->
@@ -232,11 +230,12 @@
         <img src="images/godFather.jfif" class="card-img-top" alt="...">
         <div class="card-body">
 		  <br><br><br><br>
-          <h5 class="card-title">The God Father</h5>
+          <h5 class="card-title">The Godfather</h5>
           <p class="card-text">Available in sizes S M L XL XXL XXXL. Make them an offer they can all understand with this Mario Puzo cracker! Legendary film that is still talked about this present day</p>
         </div>
         <div class="card-footer">
-          <div>€29.99<button type="button my-4 my-lg-0" onClick="item3()" class="btn btn-primary">Add To Cart</button></div>
+          <div><center>€29.99		  
+			  <button type="button my-4 my-lg-0" onClick="item3()" class="btn btn-primary">Add To Cart</button></center></div>
         </div>
       </div>
     </div>
@@ -293,6 +292,8 @@ let userLogOutButton = "none";
 userLogOutButton = document.getElementById('logOut'); // link the userLogOutButton to userLogOutButton id
 userLogOutButton.style.visibility = 'hidden'; //hiding the button
 profileButton.style.visibility = 'hidden';
+hideLoginButton.style.visibility = 'hidden'; 
+hideRegisterButton.style.visibility = 'hidden';
 if(getStarter.checkStarter == true){
 	let check = JSON.parse(localStorage.checkLoggin);//cloning the data for checkloggin from the local storage
 	let getPosition = localStorage.getItem('counter');

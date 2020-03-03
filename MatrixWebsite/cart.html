@@ -58,7 +58,7 @@
 		  <button id="logOut"type="button my-4 my-lg-0" class="btn btn-primary custom-btn"><i class="fas fa-unlock"></i>    LogOut</button>
 	  </div>
       <!-- Modal for login button-->
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="false">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -217,8 +217,8 @@
    <div class="card shopping-cart">
 		<div class="card-header bg-dark text-light">
 			<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-			Shipping cart
-			<a href="" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
+			Shopping cart
+			<a href="" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
 			<div class="clearfix"></div>
 		</div>
 		<div id="showError">
@@ -229,7 +229,7 @@
 							<img class="img-responsive" src="images/pulpFiction.jfif" alt="prewiew" width="120" height="80">
 					</div>
 					<div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-						<h4 class="product-name"><strong>Pulp Fiction Special Addition</strong></h4>
+						<h4 class="product-name"><strong>Pulp Fiction Special Edition</strong></h4>
 						<h4>
 							<small>Size medium</small>
 						</h4>
@@ -504,10 +504,10 @@
 			<div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
 				<div class="row">
 					<div class="col-6">
-						<input id="couponCheck" type="text" class="form-control" placeholder="cupone code">
+						<input id="couponCheck" type="text" class="form-control" placeholder="Coupon code">
 					</div>
 					<div class="col-6">
-						<input onclick="couponChecker()" type="submit" class="btn btn-default" value="Use cupone">
+						<input onclick="couponChecker()" type="submit" class="btn btn-default" value="Use coupon">
 					</div>
 				</div>
 			</div>
@@ -680,11 +680,11 @@ else{
 if (discount == true){
 	calculation = calculation - (calculation * 0.10);
 	calculation = calculation.toFixed(2);//puting it to 2 decimal places
-	document.getElementById("totalPrice").innerHTML = ("Total price: <b>" +calculation +"€</b>");// output the total
+	document.getElementById("totalPrice").innerHTML = ("Total price: <b>€ " +calculation +"</b>");// output the total
 }
 else{
 calculation = calculation.toFixed(2);//puting it to 2 decimal places
-document.getElementById("totalPrice").innerHTML = ("Total price: <b>" +calculation +"€</b>");// output the total
+document.getElementById("totalPrice").innerHTML = ("Total price: <b> €" +calculation +"</b>");// output the total
 }
 }
 }
@@ -786,6 +786,9 @@ let userLogOutButton = "none";
 userLogOutButton = document.getElementById('logOut'); // link the userLogOutButton to userLogOutButton id  
 userLogOutButton.style.visibility = 'hidden'; //hiding the button
 profileButton.style.visibility = 'hidden';
+//hide login and register button
+hideLoginButton.style.visibility = 'hidden'; 
+hideRegisterButton.style.visibility = 'hidden';
 if(getStarter.checkStarter == true){
 	let check = JSON.parse(localStorage.checkLoggin);//cloning the data for checkloggin from the local storage
 	let getPosition = localStorage.getItem('counter');
@@ -803,8 +806,8 @@ if(check.logginChecker == true ){ //checking if its true it will hide the loggin
 	document.getElementById("userPassword").value = itemName[getcounter].password;
 }
 else{//if its not true it will leave it visible
-	hideLoginButton.style.visibility = 'visible'; 
-	hideRegisterButton.style.visibility = 'visible';
+	hideLoginButton.style.visibility = 'hidden'; 
+	hideRegisterButton.style.visibility = 'hidden';
 	profileButton.style.visibility = 'hidden';
 	userLogOutButton.style.visibility = 'hidden';
 }
