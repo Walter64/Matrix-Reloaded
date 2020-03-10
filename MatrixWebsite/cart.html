@@ -240,8 +240,8 @@
 						</div>
 						<div class="col-4 col-sm-4 col-md-4">
 							<div class="quantity">
-								<input id="quantity1" type="number" step="1" max="99" oninput="startCart()" min="1" value="1" title="Qty" class="qty"
-									   size="3">
+								<input id="quantity1" type="number" step="1" max="99" oninput="quantity1test()" min="1" value="1" title="Qty" class="qty"
+									   size="1">
 							</div>
 						</div>
 						<div class="col-2 col-sm-2 col-md-2 text-right">
@@ -586,6 +586,13 @@ let priceItem7 = 36.99;
 let priceItem8 = 15.99;
 let priceItem9 = 29.99;
 let calculation = 0;
+
+let quantity1 = JSON.parse(localStorage.quantityItem1);
+let quantity2 = JSON.parse(localStorage.quantityItem2);
+let quantity3 = JSON.parse(localStorage.quantityItem3);
+localStorage.setItem('quantityItem1', document.getElementById("quantity1").value);
+localStorage.setItem('quantityItem2', document.getElementById("quantity2").value);
+localStorage.setItem('quantityItem3', document.getElementById("quantity3").value);
 let quantityItem1,quantityItem2,quantityItem3,quantityItem4,quantityItem5,quantityItem6,quantityItem7,quantityItem8,quantityItem9 = 1;    
 if(item1 == false){ // checking if the item on is select if not it will remove the entire div 
 	if(removeitem1.parentElement){//checking if there is a element 
@@ -594,7 +601,7 @@ if(item1 == false){ // checking if the item on is select if not it will remove t
 	}
 }
 else{// otherwise it will calculate the total
-	quantityItem1 = document.getElementById("quantity1").value;
+	quantityItem1 = document.getElementById('quantity1').value = quantity1;
 	calculation = priceItem1 * quantityItem1; // calculating the total
 }
 if(item2 == false){// checking if the item on is select if not it will remove the entire div 
@@ -604,7 +611,8 @@ if(item2 == false){// checking if the item on is select if not it will remove th
 	}
 }
 else{
-	quantityItem2 = document.getElementById("quantity2").value; 
+	document.getElementById('quantity2').value = quantity2
+	quantityItem2 = document.getElementById('quantity2').value;
 	calculation = calculation + (priceItem2 * quantityItem2);// calculating the total
 }
 if(item3 == false){
@@ -614,7 +622,7 @@ if(item3 == false){
 	}
 }
 else{
-	quantityItem3 = document.getElementById("quantity3").value; 
+	quantityItem3 = document.getElementById('quantity3').value = quantity3;
 	calculation = calculation + (priceItem3 * quantityItem3);// calculating the total
 }
 if(item4 == false){
@@ -704,6 +712,7 @@ localStorage.setItem('item9', value); // set the item9
 localStorage.setItem('itemReset', value); // set the item9
 window.location.reload();
 }
+
 function deleteItem1(){// function to remove the entire element
 removeitem1.parentElement.removeChild(removeitem1);//removing element 1 with id item1 and so on for the rest
 localStorage.setItem('item1', false);
@@ -734,6 +743,7 @@ removeitem6.parentElement.removeChild(removeitem6);
 localStorage.setItem('item6', false);
 window.location.reload();
 }
+
 function deleteItem7(){// function to remove the entire element
 removeitem7.parentElement.removeChild(removeitem7);
 localStorage.setItem('item7', false);

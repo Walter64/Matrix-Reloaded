@@ -210,7 +210,16 @@
           <p class="card-text">Available in sizes S M L XL XXL XXXL. Our pulp fiction special addition T-Shirt to honour the fantastic movie, a Quentin Tarantino marvel and still a very popular choice you can now wear as your own. </p>
         </div>
         <div class="card-footer">
-          <div><center>€17.99<button type="button my-4 my-lg-0" onClick="item1()" class="btn btn-primary">Add to Cart</button></center></div>
+          <div>€17.99
+			Quantity:
+			<select id="quantity1" class="btn btn-secondary dropdown-toggle">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<button type="button my-4 my-lg-0" onClick="item1()" class="btn btn-primary">Add to Cart</button></div>
         </div>
       </div>
         <!-- card 2 of row 1 -->
@@ -222,7 +231,15 @@
           <p class="card-text">Available in sizes S M L XL XXL XXXL. Star Wars a SCIFI classic, to honour the great movie we have a great T-Shirt just for that.</p>
         </div>
         <div class="card-footer">
-          <div><center>€24.99<button type="button my-4 my-lg-0" onClick="item2()" class="btn btn-primary">Add To Cart</button></center></div>
+          <div>€24.99 Quantity:
+			<select id="quantity2" class="btn btn-secondary dropdown-toggle">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<button type="button my-4 my-lg-0" onClick="item2()" class="btn btn-primary">Add To Cart</button></div>
         </div>
       </div>
       <!-- card 3 of row 1 -->
@@ -234,8 +251,16 @@
           <p class="card-text">Available in sizes S M L XL XXL XXXL. Make them an offer they can all understand with this Mario Puzo cracker! Legendary film that is still talked about this present day</p>
         </div>
         <div class="card-footer">
-          <div><center>€29.99		  
-			  <button type="button my-4 my-lg-0" onClick="item3()" class="btn btn-primary">Add To Cart</button></center></div>
+          <div>€29.99
+			Quantity:
+			<select id="quantity3" class="btn btn-secondary dropdown-toggle">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>		  
+			  <button type="button my-4 my-lg-0" onClick="item3()" class="btn btn-primary">Add To Cart</button></div>
         </div>
       </div>
     </div>
@@ -243,16 +268,22 @@
   </body>
 </html>
 <script>
+	 localStorage.setItem('quantityItem1', document.getElementById("quantity1").value);
+	 localStorage.setItem('quantityItem2', document.getElementById("quantity2").value);
+	 localStorage.setItem('quantityItem3', document.getElementById("quantity3").value);
 function item1(){
  localStorage.setItem('item1', true);
+ localStorage.setItem('quantityItem1', document.getElementById("quantity1").value);
   alert("Item was successfully added to cart. Thank you!");
 }
 function item2(){
  localStorage.setItem('item2', true);
+ localStorage.setItem('quantityItem2', document.getElementById("quantity2").value);
   alert("Item was successfully added to cart. Thank you!");
 }
 function item3(){
  localStorage.setItem('item3', true);
+ localStorage.setItem('quantityItem3', document.getElementById("quantity3").value);
   alert("Item was successfully added to cart. Thank you!");
 }
 
