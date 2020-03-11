@@ -238,27 +238,12 @@
         <!-- End of linkbar  -->
         <!-- Container for carousel and images and sidebars  -->
           <!-- Carousel Bootstrap  -->
-          <div class="bd-example col-lg-8 col-xl-4 col-sm-12 col-xs-12 mx-auto" >
-            <h1>Card Flip with Text</h1>
-<h3>Hover over the image below:</h3>
-
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-      <h1>John Doe</h1> 
-      <p>Architect & Engineer</p> 
-      <p>We love that guy</p>
-    </div>
-  </div>
-</div>
-
+          <div class="bd-example col-lg-8 col-xl-4 col-sm-12 col-xs-12 mx-auto" id= "addFeedBack" >
+            <div id="hideFeedBack">
             <form method="POST">
 
               Your name: <br>
-              <input type="text" name="realname"><br>
+              <input type="text" name="realname" id="getName" ><br>
               <br>
               
               Your email: <br>
@@ -266,12 +251,14 @@
               <br>
               
               Your comments: <br>
-              <textarea name="comments" rows="10" cols="50"></textarea><br><br>
+              <textarea name="comments" rows="10" cols="50" id="getReview"></textarea><br><br>
               
-              <input onclick="resetCart()" type="submit" value="Submit">
+              <input onclick="setReview()" type="button" value="Submit">
                
               </form>
+            </div>
         </div>
+
 
         <!-- Cantainer For Carousel and Sidebars end-->
 
@@ -284,21 +271,49 @@
 </body>
 </html>
 <script>
-function setReview(){
-alert("Thank you for shoping from us!");
-let value = false;
-localStorage.setItem('item1', value); // set the item1 with value false
-localStorage.setItem('item2', value); // set the item2
-localStorage.setItem('item3', value); // set the item3
-localStorage.setItem('item4', value); // set the item4
-localStorage.setItem('item5', value); // set the item5
-localStorage.setItem('item6', value); // set the item6
-localStorage.setItem('item7', value); // set the item7
-localStorage.setItem('item8', value); // set the item8
-localStorage.setItem('item9', value); // set the item9
-localStorage.setItem('item9', value); // set the item9
-localStorage.setItem('itemReset', value); // set the item9
-window.location.reload();
+
+let permToHide = localStorage.getItem('hideFeedBack');
+permToHide = JSON.parse(permToHide);
+if(permToHide == true){
+  hideFeedBPan = document.getElementById('hideFeedBack'); // link the userLogOutButton to userLogOutButton id  
+      hideFeedBPan.style.visibility = 'hidden'; //hiding the button
+      var newNode = document.createElement('div');
+      newNode.className='margin-right';
+      newNode.innerHTML = '<center><div class="bd-example col-lg-8 col-xl-4 col-sm-12 col-xs-12 mx-auto" id="hideFlipCard"><div class="flip-card" id="hideFlip"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/meth.jpg" alt="Avatar" style="width:300px;height:300px;"></div><div class="flip-card-back" ><h1 id="feedBackName"></h1> <p>Customer</p> <p id="feedBack"></p></div></div></div></div>';
+      var check =  document.getElementById('addFeedBack');
+      check.insertBefore(newNode, check.childNodes[0]);
+      let review1 = JSON.parse(localStorage.item1);
+      document.getElementById("feedBackName").innerHTML = review1.customerName;
+	    document.getElementById("feedBack").innerHTML = review1.review;
+ 
 }
 
-      </script>
+
+
+function setReview(){
+  let name,review;
+  //name = document.getElementById('getName').value;
+  //review = document.getElementById('getReview').value;
+  let reviewTest = {customerName:"Honda", review:"Civic"}
+  reviewTest.customerName = document.getElementById("getName").value;
+	reviewTest.review = document.getElementById("getReview").value;
+    localStorage.item1 = JSON.stringify(reviewTest);
+
+      let hideFeedBPan = "none";
+      hideFeedBPan = document.getElementById('hideFeedBack'); // link the userLogOutButton to userLogOutButton id  
+      hideFeedBPan.style.visibility = 'hidden'; //hiding the button
+      localStorage.setItem('hideFeedBack', true); // set the item1 with value false
+      var countup = this;
+      var newNode = document.createElement('div');
+      newNode.className='margin-right';
+      newNode.innerHTML = '<center><div class="bd-example col-lg-8 col-xl-4 col-sm-12 col-xs-12 mx-auto" id="hideFlipCard"><div class="flip-card" id="hideFlip"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/meth.jpg" alt="Avatar" style="width:300px;height:300px;"></div><div class="flip-card-back" ><h1 id="feedBackName"></h1> <p>Customer</p> <p id="feedBack"></p></div></div></div></div>';
+      var check =  document.getElementById('addFeedBack');
+      check.insertBefore(newNode, check.childNodes[0]);
+      let review1 = JSON.parse(localStorage.item1);
+      document.getElementById("feedBackName").innerHTML = reviewTest.customerName;
+	    document.getElementById("feedBack").innerHTML = reviewTest.review;
+
+
+}
+
+</script>
